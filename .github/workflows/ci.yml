@@ -3,7 +3,7 @@ name: "CI with Custom Action"
 on:
   push:
     branches:
-      - main
+      - '**'
 
 jobs:
   build:
