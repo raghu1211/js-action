@@ -1,0 +1,22 @@
+name: "CI with Custom Action"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use custom JavaScript action
+        uses: raghu1211/my-js-action@v1  # Reference to your action
+        with:
+          name: "Raghu"  # Input for the action
+          
+      - name: Display greeting output
+        run: echo "Greeting message: ${{ steps.greet.outputs.greeting }}"
