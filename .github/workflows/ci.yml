@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Use custom JavaScript action
         id: greet  
-        uses: raghu1211/js-action@v4
+        uses: raghu1211/js-action@v3
         with:
           name: "Raghu"  
           
