@@ -15,7 +15,7 @@ jobs:
 
       - name: Use custom JavaScript action
         id: greet  
-        uses: raghu1211/js-action@v1  
+        uses: raghu1211/js-action@v4
         with:
           name: "Raghu"  
           
