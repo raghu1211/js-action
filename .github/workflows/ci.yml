@@ -14,10 +14,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use custom JavaScript action
-        id: greet  # Add a step ID to reference it later
-        uses: raghu1211/my-js-action@v1  # Reference to your action
+        id: greet  
+        uses: raghu1211/my-js-action@v1  
         with:
-          name: "Raghu"  # Input for the action
+          name: "Raghu"  
           
       - name: Display greeting output
-        run: echo "Greeting message: ${{ steps.greet.outputs.greeting }}"
+        run: |
+          echo "Greeting message: ${{ steps.greet.outputs.greeting }}"

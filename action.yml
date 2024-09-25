@@ -1,15 +1,13 @@
-name: "My Custom JavaScript Action"
-description: "A simple GitHub Action that prints a greeting message"
-author: "raghu1211"
+name: 'My JS Action'
+description: 'An example JavaScript action'
 inputs:
   name:
-    description: "The name of the person to greet"
+    description: 'The name to greet'
     required: true
-    default: "World"
 outputs:
   greeting:
-    description: "The greeting message"
-runs:
-  using: "node16"
-  main: "index.js"
+    description: 'The greeting message'
 
+runs:
+  using: 'node16'
+  main: 'index.js'
