@@ -11,14 +11,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Use custom JavaScript action
-        id: greet  
-        uses: raghu1211/js-action@v2
+      - name: Run custom action
+        id: greet  # Assign an ID to reference this step's outputs
+        uses: ./my-action  # Use your local custom action
         with:
-          name: "Raghu"  
-          
-      - name: Display greeting output
-        run: |
-          echo "Greeting message: ${{ steps.greet.outputs.greeting }}"
+          name: "Raghu"  # Provide input for the action
+
+      - name: Display output
+        run: echo "Greeting message: ${{ steps.greet.outputs.greeting }}"

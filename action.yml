@@ -1,13 +1,16 @@
-name: 'My JS Action'
-description: 'An example JavaScript action'
+name: "My Custom JS Action"
+description: "A simple action to greet by name"
+
 inputs:
   name:
-    description: 'The name to greet'
+    description: "The name to greet"
     required: true
+    default: "World"
+
 outputs:
   greeting:
-    description: 'The greeting message'
+    description: "The greeting message"
 
 runs:
-  using: 'node16'
-  main: 'index.js'
+  using: "node16" 
+  main: "index.js"
