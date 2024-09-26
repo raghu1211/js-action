@@ -1,14 +1,32 @@
-on: [push]
+name: "CI with Custom Action"
+
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  hello_world_job:
+  build:
     runs-on: ubuntu-latest
-    name: A job to say hello
+
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: raghu1211/js-action@v1.1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          who-to-greet: 'Raghu'
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          node-version: '20'
+
+      - name: Install dependencies (including @actions/core)
+        run: |
+          cd ./js-action  
+          npm install @actions/core 
+
+      - name: Use custom JavaScript action
+        uses: ./js-action  
+        with:
+          name: "Raghu"  
+          
+      - name: Display greeting output
+        run: echo "Greeting message ${{ steps.greet.outputs.greeting }}"
