@@ -20,11 +20,11 @@ jobs:
 
       - name: Install dependencies (including @actions/core)
         run: |
-          cd ./js-action/*
+          cd js-action
           npm install @actions/core 
 
       - name: Use custom JavaScript action
-        uses: ./js-action/*
+        uses: js-action/action.yml@v1.1
         with:
           name: "Raghu"  
           
