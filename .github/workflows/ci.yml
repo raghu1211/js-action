@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: ./action@v1.1
+        uses: ./js-action/action.yaml
         with:
           who-to-greet: 'Raghu'
       - name: Get the output time
