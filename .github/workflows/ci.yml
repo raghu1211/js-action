@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run custom action
-        id: greet  # Assign an ID to reference this step's outputs
-        uses: ./my-action  # Use your local custom action
+        id: greet  
+        uses: ./action.yml  
         with:
-          name: "Raghu"  # Provide input for the action
+          name: Raghu
 
       - name: Display output
-        run: echo "Greeting message: ${{ steps.greet.outputs.greeting }}"
+        run: echo "Greeting message = ${{ steps.greet.outputs.greeting }}"
