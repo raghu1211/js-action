@@ -3,7 +3,7 @@ name: "CI with Custom Action"
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -18,15 +18,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies (including @actions/core)
-        run: |
-          cd js-action
-          npm install @actions/core 
+      - name: Install @actions/core dependency
+        run: npm install @actions/core
+        working-directory: ./js-action 
 
       - name: Use custom JavaScript action
-        uses: js-action/action.yml@v1.1
+        uses: ./js-action 
         with:
-          name: "Raghu"  
-          
-      - name: Display greeting output
+          name: "Raghu"
+
+      - name: Display output
         run: echo "Greeting message ${{ steps.greet.outputs.greeting }}"
