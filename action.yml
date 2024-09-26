@@ -1,16 +1,13 @@
-name: "My Custom JS Action"
-description: "A simple action to greet by name"
-
+name: 'Hello World'
+description: 'Greet someone and record the time'
 inputs:
-  name:
-    description: "The name to greet"
+  who-to-greet:  # id of input
+    description: 'Who to greet'
     required: true
-    default: "World"
-
+    default: 'World'
 outputs:
-  greeting:
-    description: "The greeting message"
-
+  time: # id of output
+    description: 'The time we greeted you'
 runs:
-  using: "node20" 
-  main: "index.js"
+  using: 'node20'
+  main: 'index.js'

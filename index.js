@@ -1,18 +1,15 @@
 const core = require('@actions/core');
+const github = require('@actions/github');
 
 try {
-  // Get the input from the workflow file
-  const name = core.getInput('name');
-  
-  // Construct the greeting message
-  const message = `Hello, ${name}! Welcome to your custom GitHub Action.`;
-
-  // Log the message in the output
-  console.log(message);
-
-  // Set the output to the greeting message
-  core.setOutput("greeting", message);
-  
+  // `who-to-greet` input defined in action metadata file
+  const nameToGreet = core.getInput('who-to-greet');
+  console.log(`Hello ${nameToGreet}!`);
+  const time = (new Date()).toTimeString();
+  core.setOutput("time", time);
+  // Get the JSON webhook payload for the event that triggered the workflow
+  const payload = JSON.stringify(github.context.payload, undefined, 2)
+  console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
