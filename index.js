@@ -1,4 +1,4 @@
-const core = require('@actions/core');
+const core = require('@octokit/core');
 const github = require('@actions/github');
 
 try {
