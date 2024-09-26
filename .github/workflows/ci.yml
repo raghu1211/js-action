@@ -15,7 +15,7 @@ jobs:
 
       - name: Run custom action
         id: greet  
-        uses: ./action.yml  
+        uses: ./
         with:
           name: Raghu
 
